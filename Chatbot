@@ -63,7 +63,7 @@ TextButton1.Active = true
 TextButton1.MouseButton1Click:Connect(function()
 TextButton1.Text = "Requesting.."
 TextButton1.Active = false
-TextBox2.Text = RequestAIChat(TextBox1.Text, "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")
+TextBox2.Text = RequestAIChat(TextBox1.Text, "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)
 TextButton1.Text = "Ask"
 TextButton1.Active = true
 end)
