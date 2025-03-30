@@ -1,0 +1,69 @@
+--[[ Request AI Chatbot
+local BotMessage = RequestAIChat("Hi", "YOUR_API_KEY_HERE") --use this to request ask AI
+]]
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/AI Chatbot API Source'))()
+--
+
+
+local ScreenGui1 = Instance.new("ScreenGui")
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.Name = "ChatBot Gui"
+
+
+local Frame1 = Instance.new("Frame") 
+Frame1.Parent = ScreenGui1
+Frame1.BackgroundColor3 = Color3.fromRGB(17,17,17)
+Frame1.BorderSizePixel = 0
+Frame1.BackgroundTransparency = 0
+Frame1.Position = UDim2.new(0.4,0,0)
+Frame1.Size = UDim2.new(0,250,0,180)
+Frame1.Active = true
+Frame1.Draggable = true
+
+local TextBox1 = Instance.new("TextBox") 
+TextBox1.Parent = Frame1
+TextBox1.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextBox1.BorderSizePixel = 1
+TextBox1.BorderColor3 = Color3.fromRGB(242,243,243)
+TextBox1.Position = UDim2.new(0.05,0,0.1)
+TextBox1.Size = UDim2.new(0.9,0,0.15)
+TextBox1.Font = Enum.Font.SourceSansBold
+TextBox1.TextColor3 = Color3.fromRGB(242,243,243)
+TextBox1.Text = ""
+TextBox1.PlaceholderText = "Message Here"
+TextBox1.TextScaled = false
+TextBox1.TextWrapped = true
+TextBox1.TextSize = 18
+TextBox1.MultiLine = true
+TextBox1.ClearTextOnFocus = false
+TextBox1.TextXAlignment = Enum.TextXAlignment.Left
+TextBox1.TextYAlignment = Enum.TextYAlignment.Top
+
+local TextBox2 = TextBox1:Clone()
+TextBox2.Parent = Frame1
+TextBox2.Position = UDim2.new(0.05,0,0.3)
+TextBox2.Size = UDim2.new(0.9,0,0.45)
+TextBox2.PlaceholderText = ""
+
+local TextButton1 = Instance.new("TextButton") 
+TextButton1.Parent = Frame1
+TextButton1.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextButton1.BorderSizePixel = 1
+TextButton1.BorderColor3 = Color3.fromRGB(242,243,243)
+TextButton1.Position = UDim2.new(0.375,0,0.8)
+TextButton1.Size = UDim2.new(0.25,0,0.16)
+TextButton1.Font = Enum.Font.SourceSansBold
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
+TextButton1.Text = "Ask AI"
+TextButton1.TextSize = 18
+TextButton1.TextScaled = true
+TextButton1.TextWrapped = true
+TextButton1.Active = true
+
+TextButton1.MouseButton1Click:Connect(function()
+TextButton1.Text = "Requesting.."
+TextButton1.Active = false
+TextBox2.Text = RequestAIChat(TextBox1.Text, "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")
+TextButton1.Text = "Ask"
+TextButton1.Active = true
+end)
